@@ -42,12 +42,12 @@ if ( ! function_exists( 'uncanny_automator_pretty_links_integration_init' ) ) {
 		// You may namespace the main plugin file of course if you want to.
 		( new \Uncanny_Automator\Pretty_Links\Integration\Integration() );
 
-        // Trigger 1: A pretty link of {{a specific redirect type}} is created.
+		// Trigger 1: A pretty link of {{a specific redirect type}} is created.
 		require_once UNCANNY_AUTOMATOR_PRETTY_LINKS_PATH . 'src/trigger/class-redirect-of-specific-type-created-trigger.php';
 		// On class instantiation, the parent class calls the setup_trigger method.
 		( new \Uncanny_Automator\Pretty_Links\Trigger\Redirect_Of_Specific_Type_Created_Trigger() );
 
-         // Trigger 2: A pretty link of is created.
+		// Trigger 2: A pretty link of is created.
 		require_once UNCANNY_AUTOMATOR_PRETTY_LINKS_PATH . 'src/trigger/class-redirect-of-any-type-created-trigger.php';
 		// On class instantiation, the parent class calls the setup_trigger method.
 		( new \Uncanny_Automator\Pretty_Links\Trigger\Redirect_Of_Any_Type_Created_Trigger() );
