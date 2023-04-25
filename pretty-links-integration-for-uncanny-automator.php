@@ -42,10 +42,10 @@ if ( ! function_exists( 'uncanny_automator_pretty_links_integration_init' ) ) {
 		// You may namespace the main plugin file of course if you want to.
 		( new \Uncanny_Automator\Pretty_Links\Integration\Integration() );
 
-		require_once UNCANNY_AUTOMATOR_PRETTY_LINKS_PATH . 'src/trigger/class-specific-type-created-trigger.php';
+		require_once UNCANNY_AUTOMATOR_PRETTY_LINKS_PATH . 'src/trigger/class-redirect-of-specific-type-created-trigger.php';
 
 		// On class instantiation, the parent class calls the setup_trigger method.
-		( new \Uncanny_Automator\Pretty_Links\Trigger\Specific_Type_Created_Trigger() );
+		( new \Uncanny_Automator\Pretty_Links\Trigger\Redirect_Of_Specific_Type_Created_Trigger() );
 
 	}
 }

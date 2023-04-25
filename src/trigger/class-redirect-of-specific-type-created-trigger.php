@@ -1,6 +1,6 @@
 <?php
 /**
- * This file holds the class \Uncanny_Automator\Pretty_Links\Trigger\Specific_Type_Created_Trigger
+ * This file holds the class \Uncanny_Automator\Pretty_Links\Trigger\Redirect_Of_Specific_Type_Created_Trigger
  *
  * @package Uncanny_Automator\Pretty_Links\Trigger
  * @since 1.0.0
@@ -19,7 +19,7 @@ namespace Uncanny_Automator\Pretty_Links\Trigger;
  *
  * @version 1.0.0
  */
-class Specific_Type_Created_Trigger extends \Uncanny_Automator\Recipe\Trigger {
+class Redirect_Of_Specific_Type_Created_Trigger extends \Uncanny_Automator\Recipe\Trigger {
 
 	/**
 	 * Setups the Trigger properties.
@@ -33,7 +33,7 @@ class Specific_Type_Created_Trigger extends \Uncanny_Automator\Recipe\Trigger {
 		$this->set_integration( 'PRETTY_LINKS' );
 
 		// Unique trigger code.
-		$this->set_trigger_code( 'POST_CREATED_SAMPLE' );
+		$this->set_trigger_code( 'REDIRECT_OF_SPECIFIC_TYPE_CREATED' );
 
 		// Reuseable trigger meta, can be used as the ID of a field OR group of fields.
 		$this->set_trigger_meta( 'REDIRECT_TYPE' );
