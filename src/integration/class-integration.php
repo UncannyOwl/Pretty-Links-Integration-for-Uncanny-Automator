@@ -1,6 +1,7 @@
 <?php
+namespace Uncanny_Automator\Pretty_Links\Integration;
 
-class Sample_Integration extends \Uncanny_Automator\Integration {
+class Integration extends \Uncanny_Automator\Integration {
 
 	protected function setup() {
 

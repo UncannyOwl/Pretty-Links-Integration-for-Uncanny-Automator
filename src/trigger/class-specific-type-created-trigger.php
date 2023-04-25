@@ -30,12 +30,12 @@ class Specific_Type_Created_Trigger extends \Uncanny_Automator\Recipe\Trigger {
 	protected function setup_trigger() {
 
 		// Define the Trigger's info.
-		$this->set_integration( 'PRETTY_LINKS' );
-		$this->set_trigger_code( 'POST_CREATED_SAMPLE' );
-		$this->set_trigger_meta( 'REDIRECT_TYPE' );
-		$this->set_trigger_type( 'anonymous' );
+		$this->set_integration( 'PRETTY_LINKS' ); // Unique integration code.
+		$this->set_trigger_code( 'POST_CREATED_SAMPLE' ); // Unique trigger code.
+		$this->set_trigger_meta( 'REDIRECT_TYPE' ); // Reuseable trigger meta, can be used as the ID of a field OR group of fields.
+		$this->set_trigger_type( 'anonymous' ); // Options 'anonymous' or 'user'.
 
-		// Trigger sentence.
+		// Sentence that appears in UI once selected (sentence with selectable blue boxes).
 		$this->set_sentence(
 			sprintf(
 				/* translators: Trigger sentence */
@@ -43,10 +43,11 @@ class Specific_Type_Created_Trigger extends \Uncanny_Automator\Recipe\Trigger {
 					'A pretty link of {{a specific redirect type:%1$s}} is created',
 					'automator-sample'
 				),
-				'REDIRECT_TYPE'
+				$this->get_trigger_meta() // Returns string 'REDIRECT_TYPE'.
 			)
 		);
 
+		// Sentence that appears in the trigger list drop down.
 		$this->set_readable_sentence(
 			esc_attr__(
 				'A pretty link of {{a specific redirect type}} is created',
@@ -97,7 +98,7 @@ class Specific_Type_Created_Trigger extends \Uncanny_Automator\Recipe\Trigger {
 
 		$redirect_types_dropdown = array(
 			'input_type'      => 'select',
-			'option_code'     => 'REDIRECT_TYPE', // This option code should match the sentence above.
+			'option_code'     => $this->get_trigger_meta(), // Returns string: 'REDIRECT_TYPE'. This option code should match the sentence above.
 			'label'           => __( 'Redirect type', 'automator-sample' ),
 			'required'        => true,
 			'options'         => $options_value,
