@@ -33,7 +33,7 @@ class Redirect_Of_Any_Type_Created_Trigger extends \Uncanny_Automator\Recipe\Tri
 		$this->set_integration( 'PRETTY_LINKS' );
 
 		// Unique trigger code. You may declare the value as a class constant, up to you.
-		$this->set_trigger_code( 'REDIRECT_OF_SPECIFIC_TYPE_CREATED' );
+		$this->set_trigger_code( 'REDIRECT_OF_ANY_TYPE_CREATED' );
 
 		// Reuseable trigger meta, can be used as the ID of a field OR group of fields.
 		$this->set_trigger_meta( 'REDIRECT_TYPE' );
