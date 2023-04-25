@@ -1,6 +1,25 @@
 <?php
+/**
+ * This file holds the class \Uncanny_Automator\Pretty_Links\Trigger\Specific_Type_Created_Trigger
+ *
+ * @since 1.0.0
+ * @package Uncanny_Automator\Pretty_Links\Trigger
+ */
 
-class Post_Created_Sample_Trigger extends \Uncanny_Automator\Recipe\Trigger {
+namespace Uncanny_Automator\Pretty_Links\Trigger;
+
+/**
+ * This class handles the Trigger definition and validation of Trigger: \
+ * "A pretty link of {{a specific redirect type}} is created"
+ *
+ * @link https://developer.automatorplugin.com/create-a-custom-automator-integration/
+ * @link https://developer.automatorplugin.com/adding-a-custom-trigger-to-uncanny-automator/
+ *
+ * @package Uncanny_Automator\Pretty_Links\Trigger
+ *
+ * @version 1.0.0
+ */
+class Specific_Type_Created_Trigger extends \Uncanny_Automator\Recipe\Trigger {
 
 	/**
 	 * Setups the Trigger properties.
@@ -19,6 +38,7 @@ class Post_Created_Sample_Trigger extends \Uncanny_Automator\Recipe\Trigger {
 		// Trigger sentence.
 		$this->set_sentence(
 			sprintf(
+				/* translators: Trigger sentence */
 				esc_attr__(
 					'A pretty link of {{a specific redirect type:%1$s}} is created',
 					'automator-sample'
@@ -53,7 +73,7 @@ class Post_Created_Sample_Trigger extends \Uncanny_Automator\Recipe\Trigger {
 	 *      'required': boolean,
 	 *      'options': array<array{'text': string, 'value': mixed}>,
 	 *      'placeholder': string,
-	 *      'options_show_id': string,
+	 *      'options_show_id': boolean,
 	 *    }
 	 *  >
 	 */
@@ -77,12 +97,12 @@ class Post_Created_Sample_Trigger extends \Uncanny_Automator\Recipe\Trigger {
 
 		$redirect_types_dropdown = array(
 			'input_type'      => 'select',
-			'option_code'     => 'REDIRECT_TYPE',
+			'option_code'     => 'REDIRECT_TYPE', // This option code should match the sentence above.
 			'label'           => __( 'Redirect type', 'automator-sample' ),
 			'required'        => true,
 			'options'         => $options_value,
 			'placeholder'     => __( 'Please select a post type', 'automator-sample' ),
-			'options_show_id' => false,
+			'options_show_id' => false, // Whether to show the option value in the dropdown.
 		);
 
 		return array(
@@ -90,9 +110,38 @@ class Post_Created_Sample_Trigger extends \Uncanny_Automator\Recipe\Trigger {
 		);
 	}
 
+	/**
+	 * Validates the Trigger. This method would allow you to narrow down the execution of the Trigger.\
+	 *
+	 * For example, we only want to fire the Trigger if the redirect type is 302.
+	 *
+	 * @param array{'ID': int, 'post_status': string, 'meta': mixed[]} $trigger The arguments supplied by the Trigger itself.
+	 * @param mixed[]                                                  $hook_args The action hook arguments passed into this method.
+	 *
+	 * @return bool
+	 */
 	public function validate( $trigger, $hook_args ) {
 
-		return true;
+		// Fail the Trigger if $trigger is not of array type.
+		if ( ! is_array( $trigger ) ) {
+			return false;
+		}
+
+		// Fail the Trigger if the REDIRECT_TYpe is not set.
+		if ( ! isset( $trigger['meta']['REDIRECT_TYPE'] ) ) {
+			return false;
+		}
+
+		// The action hook 'prli-create-link' contains two arguments. The ID and the arguments.
+		list( $id, $args ) = $hook_args;
+
+		// Fail the trigger if incoming redirect type from action hook is not set.
+		if ( ! isset( $args['redirect_type'] ) ) {
+			return false;
+		}
+
+		return absint( $trigger['meta']['REDIRECT_TYPE'] ) === absint( $args['redirect_type'] );
+
 	}
 
 }

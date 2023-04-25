@@ -8,10 +8,11 @@
  * Author URI: https://uncannyowl.com
 **/
 
-add_action( 'automator_add_integration', 'sample_integration_load_files' );
-
+define( 'UNCANNY_AUTOMATOR_PRETTY_LINKS_VERSION', '1.0.0' );
 define( 'UNCANNY_AUTOMATOR_PRETTY_LINKS_PATH', trailingslashit( __DIR__ ) );
 define( 'UNCANNY_AUTOMATOR_PRETTY_LINKS_URL', plugin_dir_url( __FILE__ ) );
+
+add_action( 'automator_add_integration', 'sample_integration_load_files' );
 
 function sample_integration_load_files() {
 
@@ -23,7 +24,9 @@ function sample_integration_load_files() {
 	require_once UNCANNY_AUTOMATOR_PRETTY_LINKS_PATH . 'src/sample-integration.php';
 	new Sample_Integration();
 
-	require_once UNCANNY_AUTOMATOR_PRETTY_LINKS_PATH . 'src/triggers/sample-trigger.php';
-	new Post_Created_Sample_Trigger();
+	require_once UNCANNY_AUTOMATOR_PRETTY_LINKS_PATH . 'src/trigger/class-specific-type-created-trigger.php';
+	// You may shorten the class name by providing the namespace with the use keyword above this file.
+	// For this example, we'll use the absolute namespace path.
+	new \Uncanny_Automator\Pretty_Links\Trigger\Specific_Type_Created_Trigger();
 
 }
