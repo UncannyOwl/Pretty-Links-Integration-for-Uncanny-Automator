@@ -1,16 +1,12 @@
 <img src="https://automatorplugin.com/wp-content/uploads/2022/09/uncanny-automator-vertical-logo.svg" width="450px" />
 
 # Uncanny Automator Pretty Links Integration 
-### Requirements
-- Uncanny Automator version 4.14 or above
-- Pretty Links - https://wordpress.org/plugins/pretty-link/
-- PHP 5.6 or above
 
-Welcome to our public reference repository, which provides valuable insights and practical examples for building an integration with Uncanny Automator. Whether you're a seasoned developer or just starting out, this repository is an excellent resource to help you get up to speed with integration development.
+This repository serves as an example of how to build an integration for your plugin. The integration here uses Pretty Links as a sample plugin. Integrating your plugin with Automator means your plugin will be ready to communicate with other plugins, including popular ones like WooCommerce, or even communicate with external apps such as MailChimp, WhatsApp, or Google Sheets.
 
-To dive deeper into the integration development process, be sure to check out our comprehensive step-by-step guide. It provides a wealth of information on developing integrations for your plugins, as well as detailed instructions on how to create your own custom integration. You can find the guide here: https://developer.automatorplugin.com/create-a-custom-automator-integration/
+To dive deeper into the integration development process, be sure to check out our comprehensive, step-by-step guide. It provides a wealth of information on developing integrations for your plugins, as well as detailed instructions on creating your custom integration. You can find the guide here: https://developer.automatorplugin.com/create-a-custom-automator-integration/
 
-We hope you find this repository and guide useful in your integration development endeavors. Happy coding!
+We hope you find this repository and guide helpful in your integration development endeavors. Happy coding!
 
 ### What are we building here?
 #### Two Triggers
@@ -26,6 +22,11 @@ We're adding an action that will automatically create a pretty link that generat
 - Create {{a pretty link}}
 #### Action tokens
 `Pretty link URL`, `Pretty link ID`
+
+### Requirements
+- Uncanny Automator version 4.14 or above
+- Pretty Links - https://wordpress.org/plugins/pretty-link/
+- PHP 5.6 or above
 
 ---
 Check the source codes at /src directory to get started.
