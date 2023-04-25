@@ -1,4 +1,5 @@
-![pretty links](https://automatorplugin.com/wp-content/uploads/2022/09/uncanny-automator-vertical-logo.svg)
+<img src="https://automatorplugin.com/wp-content/uploads/2022/09/uncanny-automator-vertical-logo.svg" width="450px" />
+
 # Uncanny Automator Pretty Links Integration 
 ### Requirements
 - Uncanny Automator version 4.14 or above
