@@ -17,15 +17,24 @@ define( 'UNCANNY_AUTOMATOR_PRETTY_LINKS_URL', plugin_dir_url( __FILE__ ) );
 // We're using anonymous function return here as we don't really want to reuse a function.
 // We're hooking into 'automator_add_integration' action hook function to make sure Uncanny Automator
 // has finished loading the required dependencies in order for our Integration to work properly.
-add_action(
-	'automator_add_integration',
-	function() {
+add_action( 'automator_add_integration', 'uncanny_automator_pretty_links_integration_init' );
+
+if ( ! function_exists( 'uncanny_automator_pretty_links_integration_init' ) ) {
+
+	/**
+	 * Initialize and instantiates the objects responsible for creating the Integration.
+	 *
+	 * @return void
+	 */
+	function uncanny_automator_pretty_links_integration_init() {
 
 		// If this class doesn't exist, Uncanny Automator plugin needs to be updated.
 		if ( ! class_exists( '\Uncanny_Automator\Integration' ) ) {
 			return;
 		}
 
+		// You may use Psr4 Autoloading or any callback to spl_autoload_register to handle file loading.
+		// But for this example, we'll manually load the files 😉.
 		require_once UNCANNY_AUTOMATOR_PRETTY_LINKS_PATH . 'src/integration/class-integration.php';
 
 		// You may shorten the class name by providing the namespace with the use keyword above this file.
@@ -39,5 +48,4 @@ add_action(
 		( new \Uncanny_Automator\Pretty_Links\Trigger\Specific_Type_Created_Trigger() );
 
 	}
-);
-
+}

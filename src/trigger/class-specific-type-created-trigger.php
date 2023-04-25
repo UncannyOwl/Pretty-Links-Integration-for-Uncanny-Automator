@@ -2,8 +2,8 @@
 /**
  * This file holds the class \Uncanny_Automator\Pretty_Links\Trigger\Specific_Type_Created_Trigger
  *
- * @since 1.0.0
  * @package Uncanny_Automator\Pretty_Links\Trigger
+ * @since 1.0.0
  */
 
 namespace Uncanny_Automator\Pretty_Links\Trigger;
@@ -29,11 +29,17 @@ class Specific_Type_Created_Trigger extends \Uncanny_Automator\Recipe\Trigger {
 	 */
 	protected function setup_trigger() {
 
-		// Define the Trigger's info.
-		$this->set_integration( 'PRETTY_LINKS' ); // Unique integration code.
-		$this->set_trigger_code( 'POST_CREATED_SAMPLE' ); // Unique trigger code.
-		$this->set_trigger_meta( 'REDIRECT_TYPE' ); // Reuseable trigger meta, can be used as the ID of a field OR group of fields.
-		$this->set_trigger_type( 'anonymous' ); // Options 'anonymous' or 'user'.
+		// Unique integration code.
+		$this->set_integration( 'PRETTY_LINKS' );
+
+		// Unique trigger code.
+		$this->set_trigger_code( 'POST_CREATED_SAMPLE' );
+
+		// Reuseable trigger meta, can be used as the ID of a field OR group of fields.
+		$this->set_trigger_meta( 'REDIRECT_TYPE' );
+
+		// Options 'anonymous' or 'user'.
+		$this->set_trigger_type( 'anonymous' );
 
 		// Sentence that appears in UI once selected (sentence with selectable blue boxes).
 		$this->set_sentence(
@@ -55,6 +61,7 @@ class Specific_Type_Created_Trigger extends \Uncanny_Automator\Recipe\Trigger {
 			)
 		);
 
+		// The action hook to listen into. Pretty links invokes 'prli-create-link' with two arguments when a link is created.
 		$this->add_action( 'prli-create-link', 10, 2 );
 
 	}
