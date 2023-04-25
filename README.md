@@ -1,30 +1,30 @@
-# Uncanny AutomatorPretty Links Integration 
+![pretty links](https://automatorplugin.com/wp-content/uploads/2022/09/uncanny-automator-vertical-logo.svg)
+# Uncanny Automator Pretty Links Integration 
 ### Requirements
 - Uncanny Automator version 4.14 or above
+- Pretty Links - https://wordpress.org/plugins/pretty-link/
 - PHP 5.6 or above
-- Tested up to WordPress 6.2
 
-This repository serves as a public reference and example for building and integration for Uncanny Automator. For full documentation, please visit our step by step guide on how to build your own integration or an integration for your plugin: https://developer.automatorplugin.com/create-a-custom-automator-integration/
+Welcome to our public reference repository, which provides valuable insights and practical examples for building an integration with Uncanny Automator. Whether you're a seasoned developer or just starting out, this repository is an excellent resource to help you get up to speed with integration development.
 
-This example does implement a basic feature. The sample codes provided in this repo does not serve as an official way of integrating with Uncanny Automator. 
+To dive deeper into the integration development process, be sure to check out our comprehensive step-by-step guide. It provides a wealth of information on developing integrations for your plugins, as well as detailed instructions on how to create your own custom integration. You can find the guide here: https://developer.automatorplugin.com/create-a-custom-automator-integration/
 
-There are tons of ways to handle the integration, but the most important part is to extend the parent classes.
+We hope you find this repository and guide useful in your integration development endeavors. Happy coding!
 
-<table>
-<tr>
-  <th>Object type</th>
-  <th>Parent class</th>
-</tr>
-<tr>
-  <td>Integration</td>
-  <td>\Uncanny_Automator\Integration</td>
-</tr>
-<tr>
-  <td>Trigger</td>
-  <td>\Uncanny_Automator\Recipe\Trigger</td>
-</tr>
-<tr>
-  <td>Action</td>
-  <td>\Uncanny_Automator\Recipe\Action</td>
-</tr>
-</table>
+### What are we building here?
+#### Two Triggers
+
+- A pretty link is created - A simple Trigger that listens when a pretty link is created.
+- A pretty link of {{a specific redirect type}} is created - A Trigger that listend when a pretty link is created, but also allows us to select a redirect type.
+
+#### Trigger tokens
+`Pretty link ID`, `Redirect type`, `Name`, `Description`, `Pretty link URL`, `Slug`, `Tracking`, `Nofollow`, `Sponsored`
+#### Action
+We're adding an action that will automatically create a pretty link that generates an Action Token that we can use in any subsequent action(s).
+
+- Create {{a pretty link}}
+#### Action tokens
+`Pretty link URL`, `Pretty link ID`
+
+---
+Check the source codes at /src directory to get started.
