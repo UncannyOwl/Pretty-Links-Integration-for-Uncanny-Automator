@@ -39,26 +39,38 @@ if ( ! function_exists( 'uncanny_automator_pretty_links_integration_init' ) ) {
 		// But for this example, we'll manually load the files 😉.
 		require_once UNCANNY_AUTOMATOR_PRETTY_LINKS_PATH . 'src/integration/class-integration.php';
 
+		// === Part 1: Integration === //
+
 		// You may shorten the class name by providing the namespace with the use keyword above this file.
 		// For this example, we'll use the absolute namespace path, we won't also use namespace in the main plugin file.
 		// You may namespace the main plugin file of course if you want to.
 		( new \Uncanny_Automator\Pretty_Links\Integration\Integration() );
 
+		// === Part 2: Triggers === //
 		// Trigger 1: A pretty link of {{a specific redirect type}} is created.
 		require_once UNCANNY_AUTOMATOR_PRETTY_LINKS_PATH . 'src/trigger/class-redirect-of-specific-type-created-trigger.php';
-		// On class instantiation, the parent class calls the setup_trigger method.
+		// Trigger: A pretty link of {{a specific redirect type}} is created.
 		( new \Uncanny_Automator\Pretty_Links\Trigger\Redirect_Of_Specific_Type_Created_Trigger() );
 
 		// Trigger 2: A pretty link of is created.
 		require_once UNCANNY_AUTOMATOR_PRETTY_LINKS_PATH . 'src/trigger/class-redirect-of-any-type-created-trigger.php';
-		// On class instantiation, the parent class calls the setup_trigger method.
+		// Trigger: A pretty link of is created.
 		( new \Uncanny_Automator\Pretty_Links\Trigger\Redirect_Of_Any_Type_Created_Trigger() );
 
 		// Trigger 3: A pretty link of is created (with tokens example).
-		// Demonstrates how you can write token for a specific integration
+		// Demonstrates how you can write token for a specific integration.
 		require_once UNCANNY_AUTOMATOR_PRETTY_LINKS_PATH . 'src/trigger/class-tokens-example-redirect-of-specific-type-created-trigger.php';
-		// On class instantiation, the parent class calls the setup_trigger method.
+		// Trigger: A pretty link of is created (with tokens example).
 		( new \Uncanny_Automator\Pretty_Links\Trigger\Tokens_Example_Redirect_Of_Specific_Type_Created_Trigger() );
+
+		// === Part 3: Actions === //
+		require_once UNCANNY_AUTOMATOR_PRETTY_LINKS_PATH . 'src/action/class-create-link-action.php';
+		// Create a pretty link with {{a specific target URL}}.
+		( new \Uncanny_Automator\Pretty_Links\Action\Create_Link_Action() );
+
+		require_once UNCANNY_AUTOMATOR_PRETTY_LINKS_PATH . 'src/action/class-tokens-example-create-link-action.php';
+		// Create a pretty link with {{a specific target URL}}.
+		( new \Uncanny_Automator\Pretty_Links\Action\Tokens_Example_Create_Link_Action() );
 
 	}
 }
