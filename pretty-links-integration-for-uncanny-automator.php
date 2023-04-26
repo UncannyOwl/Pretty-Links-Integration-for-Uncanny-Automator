@@ -14,9 +14,11 @@ define( 'UNCANNY_AUTOMATOR_PRETTY_LINKS_VERSION', '1.0.0' );
 define( 'UNCANNY_AUTOMATOR_PRETTY_LINKS_PATH', trailingslashit( __DIR__ ) );
 define( 'UNCANNY_AUTOMATOR_PRETTY_LINKS_URL', plugin_dir_url( __FILE__ ) );
 
-// We're using anonymous function return here as we don't really want to reuse a function.
-// We're hooking into 'automator_add_integration' action hook function to make sure Uncanny Automator
-// has finished loading the required dependencies in order for our Integration to work properly.
+/**
+ * Hooks into `automator_add_integration` action hook to register our Integration.
+ *
+ * The action hook 'automator_add_integration' contains no arguments, priority can be left with 10 as the default.
+ */
 add_action( 'automator_add_integration', 'uncanny_automator_pretty_links_integration_init' );
 
 if ( ! function_exists( 'uncanny_automator_pretty_links_integration_init' ) ) {
@@ -51,6 +53,12 @@ if ( ! function_exists( 'uncanny_automator_pretty_links_integration_init' ) ) {
 		require_once UNCANNY_AUTOMATOR_PRETTY_LINKS_PATH . 'src/trigger/class-redirect-of-any-type-created-trigger.php';
 		// On class instantiation, the parent class calls the setup_trigger method.
 		( new \Uncanny_Automator\Pretty_Links\Trigger\Redirect_Of_Any_Type_Created_Trigger() );
+
+		// Trigger 3: A pretty link of is created (with tokens example).
+		// Demonstrates how you can write token for a specific integration
+		require_once UNCANNY_AUTOMATOR_PRETTY_LINKS_PATH . 'src/trigger/class-tokens-example-redirect-of-specific-type-created-trigger.php';
+		// On class instantiation, the parent class calls the setup_trigger method.
+		( new \Uncanny_Automator\Pretty_Links\Trigger\Tokens_Example_Redirect_Of_Specific_Type_Created_Trigger() );
 
 	}
 }
