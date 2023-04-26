@@ -2,7 +2,7 @@
 /**
  * Holds the class \Uncanny_Automator\Pretty_Links\Trigger\Create_Link_Action
  *
- * Demonstrate how you can define and parse Tokens that are comming from Triggers.
+ * Demonstrates how you can define and parse Tokens that are comming from Triggers.
  *
  * @package Uncanny_Automator\Pretty_Links\Trigger
  *
@@ -13,7 +13,7 @@ namespace Uncanny_Automator\Pretty_Links\Action;
 
 /**
  * This class handles the Action definition and processing of Action: \
- * "Create {{a pretty link}}"
+ * "Create a pretty link with {{a specific target URL}}"
  *
  * @link https://developer.automatorplugin.com/create-a-custom-automator-integration/ Integration
  * @link https://developer.automatorplugin.com/adding-a-custom-action-to-uncanny-automator/ Actions
