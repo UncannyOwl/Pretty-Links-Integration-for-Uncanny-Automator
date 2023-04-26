@@ -13,7 +13,7 @@ We hope you find this repository and guide helpful in your integration developme
 
 - A pretty link is created - A simple trigger that listens when a pretty link is created.
 - A pretty link of {{a specific redirect type}} is created - A trigger that listens when a pretty link is created, but also allows us to select a redirect type.
-- A pretty link of {{a specific redirect type}} is created <b>(with a token example)</b> - Same as the second trigger, but contains a sample token implemenation to demonstrate how to add tokens specific to Triggers (Trigger Tokens).
+- A pretty link of {{a specific redirect type}} is created <b>(with a token example)</b> - Same as the second trigger, but contains a sample token implementation to demonstrate how to add tokens specific to Triggers (Trigger Tokens).
 
 #### Trigger tokens
 `Redirect ID` and `Redirect URL`
