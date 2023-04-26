@@ -20,7 +20,8 @@ We hope you find this repository and guide helpful in your integration developme
 #### Action
 We're adding an action that will automatically create a pretty link that generates an Action Token that we can use in any subsequent action(s).
 
-- Create {{a pretty link}}
+- Create a pretty link with {{a specific target URL}} - Simple action that automates the creation of pretty links.
+- Create a pretty link with {{a specific target URL}} (with tokens example) - Same as the previous one, but demonstate how you can add Action Tokens.
 #### Action tokens
 `Link ID`
 
