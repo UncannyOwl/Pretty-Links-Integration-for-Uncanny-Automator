@@ -9,13 +9,14 @@ To dive deeper into the integration development process, be sure to check out ou
 We hope you find this repository and guide helpful in your integration development endeavors. Happy coding!
 
 ### What are we building here?
-#### Two Triggers
+#### 3 Triggers
 
 - A pretty link is created - A simple Trigger that listens when a pretty link is created.
 - A pretty link of {{a specific redirect type}} is created - A Trigger that listend when a pretty link is created, but also allows us to select a redirect type.
+- A pretty link of {{a specific redirect type}} is created <b>(with tokens example)</b> - Same as the second Trigger mentioned, but contains a sample Tokens implemenation to demonstrate how to add tokens specific to Triggers (Trigger Tokens).
 
 #### Trigger tokens
-`Pretty link ID`, `Redirect type`, `Name`, `Description`, `Pretty link URL`, `Slug`, `Tracking`, `Nofollow`, `Sponsored`
+`Redirect ID` and `Redirect URL`
 #### Action
 We're adding an action that will automatically create a pretty link that generates an Action Token that we can use in any subsequent action(s).
 
