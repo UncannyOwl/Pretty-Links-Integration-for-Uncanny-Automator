@@ -22,7 +22,7 @@ We're adding an action that will automatically create a pretty link that generat
 
 - Create {{a pretty link}}
 #### Action tokens
-`Pretty link URL`, `Pretty link ID`
+`Link ID`
 
 ### Requirements
 - Uncanny Automator version 4.14 or above
@@ -30,4 +30,4 @@ We're adding an action that will automatically create a pretty link that generat
 - PHP 5.6 or above
 
 ---
-Check the source codes at /src directory to get started.
+Check the source codes at /src directory to get started. Give us a star if you like this repository.⭐⭐⭐⭐⭐
