@@ -1,8 +1,8 @@
 <?php
 /**
- * Holds the class \Uncanny_Automator\Pretty_Links\Trigger\class Tokens_Example_Redirect_Of_Specific_Type_Created_Trigger extends \Uncanny_Automator\Recipe\Trigger {
+ * Holds the class \Uncanny_Automator\Pretty_Links\Trigger\Tokens_Example_Redirect_Of_Specific_Type_Created_Trigger
  *
- * Demonstrate how you can define and parse Tokens that are comming from Triggers.
+ * Demonstrates how you can define and parse Tokens that are comming from Triggers.
  *
  * @package Uncanny_Automator\Pretty_Links\Trigger
  *
@@ -15,11 +15,11 @@ namespace Uncanny_Automator\Pretty_Links\Trigger;
  * This class handles the Trigger definition and validation of Trigger: \
  * "A pretty link of {{a specific redirect type}} is created (with tokens example)"
  *
- * Demonstrate how you can define and parse Tokens that are comming from a specific Trigger.
+ * Demonstrates how you can define and parse Tokens that are comming from a specific Trigger.
  *
  * @link https://developer.automatorplugin.com/create-a-custom-automator-integration/ Integration
  * @link https://developer.automatorplugin.com/adding-a-custom-trigger-to-uncanny-automator/ Triggers
- * @link https://developer.automatorplugin.com/adding-a-custom-trigger-to-uncanny-automator#passing-data-via-tokens Tokens
+ * @link https://developer.automatorplugin.com/adding-a-custom-trigger-to-uncanny-automator#tokens Tokens
  *
  * @package Uncanny_Automator\Pretty_Links\Trigger
  *
@@ -62,6 +62,9 @@ class Tokens_Example_Redirect_Of_Specific_Type_Created_Trigger extends \Uncanny_
 			'tokenType' => 'url',
 		);
 
+		// Go ahead and add the missing tokens here! Go to 'validate' method below.
+		// Then dump the $hook_args variable to inspect a list of tokens we can add.
+
 		// Finally, return the tokens. Don't forget this step.
 		return $tokens;
 
@@ -84,6 +87,9 @@ class Tokens_Example_Redirect_Of_Specific_Type_Created_Trigger extends \Uncanny_
 			'REDIRECT_ID'  => $redirect_id, // 'REDIRECT_ID' refers to the first token we defined in the define_tokens method.
 			'REDIRECT_URL' => isset( $args['url'] ) ? $args['url'] : '', // 'REDIRECT_URL' refers to the second token we defined in the define_tokens method.
 		);
+
+		// If you added the missing tokens in the define_tokens method, you may also assign the value to it directly here.
+		// Follow the example given above ($token_values).
 
 		return $token_values;
 
