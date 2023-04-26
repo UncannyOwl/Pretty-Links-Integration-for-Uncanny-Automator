@@ -155,7 +155,9 @@ class Tokens_Example_Create_Link_Action extends \Uncanny_Automator\Recipe\Action
 	 * @param mixed[] $args The args.
 	 * @param mixed[] $parsed The parsed variables.
 	 *
-	 * @return bool True if the action is successful. Returns false, otherwise.
+	 * @throws \Exception When the Action has failed.
+	 *
+	 * @return void|true Returns void if there is an Exception. Otherwise, returns True.
 	 */
 	protected function process_action( $user_id, $action_data, $recipe_id, $args, $parsed ) {
 
@@ -168,8 +170,8 @@ class Tokens_Example_Create_Link_Action extends \Uncanny_Automator\Recipe\Action
 		$target_url = isset( $parsed['TARGET_URL'] ) ? esc_url_raw( $parsed['TARGET_URL'] ) : '';
 
 		if ( ! class_exists( '\PrliLink' ) ) {
-			$this->add_log_error( 'Class \PrliLink is not found. Make sure Pretty Links plugin is installed and activated.' );
-			return false; // Return false if error ocurred during the action completion.
+			// You may also throw an Exception if there is an error. This is equivalent to returning false with $this->add_log_error.
+			throw new \Exception( 'Class \PrliLink is not found. Make sure Pretty Links plugin is installed and activated.' );
 		}
 
 		$prli = new \PrliLink();
@@ -194,8 +196,9 @@ class Tokens_Example_Create_Link_Action extends \Uncanny_Automator\Recipe\Action
 			return true; // Success. Action will be completed.
 		}
 
-		$this->add_log_error( 'Pretty Link was not able to create a URL. Please check PHP error log for possible reason.' );
-		return false;
+		// You may also throw an Exception if there is an error. This is equivalent to returning false with $this->add_log_error.
+		// Check the other Action if you wish to return false with add_log_error instead. The choice is yours.
+		throw new \Exception( 'Pretty Link was not able to create a URL. Please check PHP error log for possible reason.' );
 
 	}
 
